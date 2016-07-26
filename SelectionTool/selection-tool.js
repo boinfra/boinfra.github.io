@@ -92,7 +92,6 @@ angular.module('selectionTool', ['selectionTool.services'])
     .service('DataService', ['ConfigService', 'DemoData', '$http', function (ConfigService, DemoData, $http) {
         this.getData = function () {
             if (ConfigService.hardCoded) {
-                console.debug(DemoData.getObjectTypes());
                 return [DemoData.getObjectTypes(), DemoData.getLicenses()];
             }
             else {

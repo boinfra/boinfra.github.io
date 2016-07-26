@@ -17,9 +17,9 @@ angular.module('notAllTypesSelectionTool', ['notAllTypesSelectionTool.services']
                 $scope.jsonOutput = angular.toJson(SelectedDataService.selectedElements, 4);
             };
 
-            for(var i = 2; i < $scope.data.length; i++) {
-                $scope.data[i].selected = true;
-            }
+            $scope.selectAll();
+            $scope.toggleSelected($scope.data[0]);
+            $scope.toggleSelected($scope.data[1]);
             if (!ConfigService.useSubmitButton) {
                 $scope.submit();
             }

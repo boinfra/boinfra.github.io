@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-	<meta charset="utf-8">
-	<title>Selection tool</title>
-	<link href="libraries/bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link href="libraries/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-	<script src="libraries/angular/angular.js"></script>
-	<script src="main.js"></script>
-	<script src="selection-tool.js"></script>
-</head>
+	<head>
+		<meta charset="utf-8">
+		<title>Selection tool</title>
+		<link href="libraries/bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="libraries/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+		<script src="libraries/angular/angular.js"></script>
+		<script src="main.js"></script>
+		<script src="selection-tool.js"></script>
+	</head>
 
-<body ng-app="app">
-	<div class="container" ng-controller="FilterController" ng-init="showTypes=true; showLicenses=true">
-		<ul class="nav nav-pills">
-			 <li ng-class="{active: showTypes}"><a href="javascript:void(o)" ng-click="showTypes=!showTypes">Object types</a></li>
-			 <li ng-class="{active: showLicenses}"><a href="javascript:void(o)" ng-click="showLicenses=!showLicenses">Licenses</a></li>
-		</ul>		
-		<button class="btn" ng-click="submit()" ng-show="useSubmitButton">
-			Submit
-		</button>
-		<br>
-		<br>
-		<ul ng-repeat="array in data" class="nav nav-pills" ng-show="$index==0&&showTypes || $index==1&&showLicenses">
-			<li ng-class="{active: allSelected($index)}">
-				<a href ng-click="toggleAllSelected($index)"><strong>ALL</strong></a>
-			</li>
-			<li ng-repeat="element in array" ng-class="{active: element.Selected}">
-				<a href ng-click="toggleSelected(element)">{{element.Name}}</a>
-			</li>
-		</ul>
-		<pre>{{jsonOutput}}</pre>
-	</div>
-</body>
+	<body>
+		<div ng-app="app">
+			<h1>Filter with object types and licenses using submit button</h1>
+			<div class="container" ng-controller="FilterController" ng-init="showTypes=true; showLicenses=true">
+				<ul class="nav nav-pills">
+					<li ng-class="{active: showTypes}"><a href="javascript:void(o)" ng-click="showTypes=!showTypes">Object types</a></li>
+					<li ng-class="{active: showLicenses}"><a href="javascript:void(o)" ng-click="showLicenses=!showLicenses">Licenses</a></li>
+				</ul>
+				<button class="btn" ng-click="submit()" ng-show="useSubmitButton">
+					Submit
+				</button>
+				<br>
+				<br>
+				<ul ng-repeat="array in data" class="nav nav-pills" ng-show="$index==0&&showTypes || $index==1&&showLicenses">
+					<li ng-class="{active: allSelected($index)}">
+						<a href ng-click="toggleAllSelected($index)"><strong>ALL</strong></a>
+					</li>
+					<li ng-repeat="element in array" ng-class="{active: element.Selected}">
+						<a href ng-click="toggleSelected(element)">{{element.Name}}</a>
+					</li>
+				</ul>
+				<pre>{{jsonOutput}}</pre>
+			</div>
+		</div>
+	</body>
 
 </html>

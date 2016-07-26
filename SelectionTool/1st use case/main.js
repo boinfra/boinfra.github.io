@@ -108,4 +108,4 @@ angular.module('app', ['selectionTool'])
         };
     });
 
-    angular.bootstrap($('#1stUseCase'), ['app']);
+    angular.bootstrap(document.getElementById('#1stUseCase'), ['app']);

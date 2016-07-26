@@ -85,6 +85,7 @@ angular.module('selectionTool', ['selectionTool.services'])
                 this.selectedElements = [];
 
                 this.addSelectedElement = function (element) {
+                    console.debug(element);
                     var index = this.selectedElements.indexOf(element);
                     if (index == -1) {
                         this.selectedElements.push(element);

@@ -1,6 +1,6 @@
 angular.module('noSubmitSelectionTool', ['noSubmitSelectionTool.services'])
 
-    .controller('noSubmitFilterController', ['$scope', 'ConfigService', 'DataService', 'SelectedDataService',
+    .controller('FilterController', ['$scope', 'ConfigService', 'DataService', 'SelectedDataService',
         function ($scope, ConfigService, DataService, SelectedDataService) {
             console.debug("Filter controller 2nd use case");
             $scope.data = DataService.getData();

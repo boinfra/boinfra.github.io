@@ -22,7 +22,7 @@
 		</button>
 		<br>
 		<br>
-		<ul ng-repeat="array in data" class="nav nav-pills" ng-show="$index==0&&showTypes || $index==1&&showLicenses">
+		<ul ng-repeat="array in data" class="nav nav-pills" ng-show="$index==0 && showTypes || $index==1 && showLicenses">
 			<li ng-class="{active: allSelected($index)}">
 				<a href ng-click="toggleAllSelected($index)"><strong>ALL</strong></a>
 			</li>

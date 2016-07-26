@@ -13,8 +13,9 @@
 
 	<body>
 		<div ng-app="app">
-			<h1>Filter with object types and licenses using submit button</h1>
 			<div class="container" ng-controller="FilterController" ng-init="showTypes=true; showLicenses=true">
+			<h1>1st use case</h1>
+			<h3>Select object types and licenses using submit button</h3>
 				<ul class="nav nav-pills">
 					<li ng-class="{active: showTypes}"><a href="javascript:void(o)" ng-click="showTypes=!showTypes">Object types</a></li>
 					<li ng-class="{active: showLicenses}"><a href="javascript:void(o)" ng-click="showLicenses=!showLicenses">Licenses</a></li>

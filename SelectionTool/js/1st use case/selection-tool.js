@@ -54,12 +54,23 @@ angular.module('selectionTool', ['selectionTool.services'])
             };
 
             $scope.toggleSelected = function (element) {
+                var displayElement;
+                for(var i = 0; i < $scope.data.length; i++) {
+                    if($scope.data[i] === element) {
+                        displayElement = new {
+                            id: element.id,
+                            name: element.name,
+                            description: element.description
+                        };
+                        i = $scope.data.length;
+                    }
+                }
                 element.selected = !element.selected;
                 if (element.selected) {
-                    SelectedDataService.addSelectedElement(element);
+                    SelectedDataService.addSelectedElement(displayElement);
                 }
                 else {
-                    SelectedDataService.removeSelectedElement(element);
+                    SelectedDataService.removeSelectedElement(displayElement);
                 }
                 if (!ConfigService.useSubmitButton) {
                     $scope.submit();

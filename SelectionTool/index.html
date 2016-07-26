@@ -50,8 +50,8 @@
 				<h1>2nd use case</h1>
 				<h3>Select object types and licenses without submit button</h3>
 				<ul class="nav nav-pills">
-					<li ng-class="{active: showTypes}"><a href="javascript:void(0)" ng-click="showTypes=!showTypes; selectNone(0); submit()">Object types</a></li>
-					<li ng-class="{active: showLicenses}"><a href="javascript:void(0)" ng-click="showLicenses=!showLicenses; selectNone(1); submit()">Licenses</a></li>
+					<li ng-class="{active: showTypes}"><a href="javascript:void(0)" ng-click="showTypes=!showTypes; selectNone(0); submit();">Object types</a></li>
+					<li ng-class="{active: showLicenses}"><a href="javascript:void(0)" ng-click="showLicenses=!showLicenses; selectNone(1); submit();">Licenses</a></li>
 				</ul>
 				<br>
 				<ul ng-repeat="array in data" class="nav nav-pills" ng-show="$index==0 && showTypes || $index==1 && showLicenses">

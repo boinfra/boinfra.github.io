@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Selection tool</title>
+	<link href="libraries/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="libraries/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+	<script src="libraries/angular/angular.js"></script>
+	<script src="main.js"></script>
+	<script src="src/selectionTool.js"></script>
+</head>
+
+<body ng-app="app">
+	<div class="container" ng-controller="FilterController">
+		<h1>Hello world</h1>
+		<button class="btn" ng-click="submit()" ng-show="useSubmitButton">
+			Submit
+		</button>
+		<br>
+		<br>
+		<ul ng-repeat="array in data" class="nav nav-pills">
+			<li ng-class="{active: allSelected($index)}">
+				<a href ng-click="toggleAllSelected($index)"><strong>ALL</strong></a>
+			</li>
+			<li ng-repeat="element in array" ng-class="{active: element.Selected}">
+				<a href ng-click="toggleSelected(element)">{{element.Name}}</a>
+			</li>
+		</ul>
+		<pre>{{jsonOutput}}</pre>
+	</div>
+</body>
+
+</html>

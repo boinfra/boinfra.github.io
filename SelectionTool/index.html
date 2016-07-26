@@ -31,12 +31,12 @@
 				</button>
 				<br>
 				<br>
-				<ul ng-repeat="array in data" class="nav nav-pills" ng-show="$index==0 && showTypes || $index==1 && showLicenses">
+				<ul ng-repeat="array in data" class="nav nav-pills" ng-init="displayArray=displayData[$index]" ng-show="$index==0 && showTypes || $index==1 && showLicenses">
 					<li ng-class="{active: allSelected($index)}">
 						<a href ng-click="toggleAllSelected($index)"><strong>ALL</strong></a>
 					</li>
 					<li ng-repeat="element in array" ng-class="{active: element.selected}">
-						<a href ng-click="toggleSelected(array, element)">{{element.name}}</a>
+						<a href ng-click="toggleSelected(array, displayArray, element)">{{element.name}}</a>
 					</li>
 				</ul>
 				<pre>{{jsonOutput}}</pre>

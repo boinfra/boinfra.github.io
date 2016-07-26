@@ -53,11 +53,11 @@ angular.module('selectionTool', ['selectionTool.services'])
                 }
             };
 
-            $scope.toggleSelected = function (array, element) {
+            $scope.toggleSelected = function (array, displayArray, element) {
                 var displayElement = {};
                 for (var i = 0; i < array.length; i++) {
                     if (array[i].id == element.id) {
-                        displayElement = $scope.displayData[i];
+                        displayElement = displayArray[i];
                         i = array.length;
                     }
                 }

@@ -63,8 +63,6 @@ angular.module('selectionTool', ['selectionTool.services'])
                         i = array.length;
                     }
                 }
-                console.debug(displayElement);
-                console.debug(element);
                 element.selected = !element.selected;
                 if (element.selected) {
                     SelectedDataService.addSelectedElement(displayElement);
@@ -94,6 +92,7 @@ angular.module('selectionTool', ['selectionTool.services'])
                 };
 
                 this.removeSelectedElement = function (element) {
+                    console.debug(element);
                     var index = this.selectedElements.indexOf(element);
                     if (index > -1) {
                         this.selectedElements.splice(index, 1);

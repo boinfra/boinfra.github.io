@@ -1,5 +1,5 @@
 angular.module('app', ['selectionTool'])
-
+    
     .provider('DemoData', function DemoDataProvider() {
         function DemoData() {
             this.getObjectTypes = function () {
@@ -108,4 +108,4 @@ angular.module('app', ['selectionTool'])
         };
     });
 
-    angular.bootstrap(document.getElementById('#1stUseCase'), ['app']);
+    angular.bootstrap(document.getElementById('1stUseCase'), ['app']);

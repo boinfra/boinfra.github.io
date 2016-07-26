@@ -85,19 +85,19 @@ angular.module('selectionTool', ['selectionTool.services'])
                 this.selectedElements = [];
 
                 this.addSelectedElement = function (element) {
-                    console.debug(element);
                     var index = this.selectedElements.indexOf(element);
                     if (index == -1) {
                         this.selectedElements.push(element);
                     }
+                    console.debug(this.selectedElements);
                 };
 
                 this.removeSelectedElement = function (element) {
-                    console.debug(element);
                     var index = this.selectedElements.indexOf(element);
                     if (index > -1) {
                         this.selectedElements.splice(index, 1);
                     }
+                    console.debug(this.selectedElements);
                 };
             })
 

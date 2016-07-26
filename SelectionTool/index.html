@@ -59,6 +59,23 @@
 				<pre>{{jsonOutput}}</pre>
 			</div>
 		</div>
+
+		<div id="3rdUseCase" ng-app="onlyTypes">
+			<div class="container" ng-controller="FilterController">
+				<h1>3rd use case</h1>
+				<h3>Select only object types submit button</h3>
+				<br>
+				<ul class="nav nav-pills">
+					<li ng-class="{active: allSelected($index)}">
+						<a href ng-click="toggleAllSelected($index)"><strong>ALL</strong></a>
+					</li>
+					<li ng-repeat="element in data[0]" ng-class="{active: element.selected}">
+						<a href ng-click="toggleSelected(element)">{{element.name}}</a>
+					</li>
+				</ul>
+				<pre>{{jsonOutput}}</pre>
+			</div>
+		</div>
 	</body>
 
 </html>

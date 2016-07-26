@@ -94,6 +94,7 @@ angular.module('selectionTool', ['selectionTool.services'])
 
                 this.removeSelectedElement = function (element) {
                     var index = this.selectedElements.indexOf(element);
+                    console.debug(index);
                     if (index > -1) {
                         this.selectedElements.splice(index, 1);
                     }

@@ -107,3 +107,5 @@ angular.module('noSubmit', ['noSubmitSelectionTool'])
             return new DemoData();
         };
     });
+
+angular.bootstrap(document.getElementById("#2ndUseCase"), ['noSubmit']);

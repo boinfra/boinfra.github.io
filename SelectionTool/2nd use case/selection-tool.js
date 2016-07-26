@@ -2,7 +2,7 @@ angular.module('noSubmitSelectionTool', ['noSubmitSelectionTool.services'])
 
     .controller('FilterController', ['$scope', 'ConfigService', 'DataService', 'SelectedDataService',
         function ($scope, ConfigService, DataService, SelectedDataService) {
-            console.debug("Filter controller 2nd use case");
+            $scope.title = "2nd use case";
             $scope.data = DataService.getData();
             $scope.useSubmitButton = ConfigService.useSubmitButton;
             $scope.jsonOutput = angular.toJson(SelectedDataService.selectedElements, 4);

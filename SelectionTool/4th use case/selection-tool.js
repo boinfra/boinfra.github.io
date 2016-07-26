@@ -17,6 +17,19 @@ angular.module('notAllTypesSelectionTool', ['notAllTypesSelectionTool.services']
                 $scope.jsonOutput = angular.toJson(SelectedDataService.selectedElements, 4);
             };
 
+            $scope.toggleSelected = function (element) {
+                element.selected = !element.selected;
+                if (element.selected) {
+                    SelectedDataService.addSelectedElement(element);
+                }
+                else {
+                    SelectedDataService.removeSelectedElement(element);
+                }
+                if (!ConfigService.useSubmitButton) {
+                    $scope.submit();
+                }
+            };
+
             $scope.selectAll();
             $scope.toggleSelected($scope.data[0]);
             $scope.toggleSelected($scope.data[1]);
@@ -46,19 +59,6 @@ angular.module('notAllTypesSelectionTool', ['notAllTypesSelectionTool.services']
                 }
                 else {
                     $scope.selectAll();
-                }
-                if (!ConfigService.useSubmitButton) {
-                    $scope.submit();
-                }
-            };
-
-            $scope.toggleSelected = function (element) {
-                element.selected = !element.selected;
-                if (element.selected) {
-                    SelectedDataService.addSelectedElement(element);
-                }
-                else {
-                    SelectedDataService.removeSelectedElement(element);
                 }
                 if (!ConfigService.useSubmitButton) {
                     $scope.submit();

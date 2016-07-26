@@ -1,9 +1,10 @@
-angular.module('selectionTool', [])
+angular.module('selectionTool', ['selectionTool.services'])
+
     .controller('FilterController', ['$scope', 'ConfigService', 'DataService', 'SelectedDataService',
         function ($scope, ConfigService, DataService, SelectedDataService) {
             $scope.data = DataService.getData();
             $scope.useSubmitButton = ConfigService.useSubmitButton;
-            $scope.jsonOutput = JSON.stringify(SelectedDataService.selectedElements, null, 4);
+            $scope.jsonOutput = angular.toJson(SelectedDataService.selectedElements, 4);
 
             $scope.selectAll = function (arrayNum) {
                 for (var i = 0; i < $scope.data[arrayNum].length; i++) {
@@ -13,7 +14,7 @@ angular.module('selectionTool', [])
             };
 
             $scope.submit = function () {
-                $scope.jsonOutput = JSON.stringify(SelectedDataService.selectedElements, null, 4);
+                $scope.jsonOutput = angular.toJson(SelectedDataService.selectedElements, 4);
             };
 
             for (var i = 0; i < $scope.data.length; i++) {
@@ -63,4 +64,73 @@ angular.module('selectionTool', [])
                     $scope.submit();
                 }
             };
-        }]);
+        }]);;angular.module('selectionTool.services', [])
+
+    .service('ConfigService', function () {
+        this.hardCoded = true;
+        this.useSubmitButton = true;
+    })
+
+    .service('SelectedDataService', function () {
+        this.selectedElements = [];
+
+        this.addSelectedElement = function (element) {
+            var index = this.selectedElements.indexOf(element);
+            if (index == -1) {
+                this.selectedElements.push(element);
+            }
+        };
+
+        this.removeSelectedElement = function (element) {
+            var index = this.selectedElements.indexOf(element);
+            if (index > -1) {
+                this.selectedElements.splice(index, 1);
+            }
+        };
+    })
+
+    .service('DataService', ['ConfigService', 'DemoData', '$http', function (ConfigService, DemoData, $http) {
+        this.getData = function () {
+            if (ConfigService.hardCoded) {
+                return [DemoData.getObjectTypes(), DemoData.getLicenses()];
+            }
+            else {
+                /*this.objectTypes = [];
+                this.licenses = [];
+                var self = this;
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "http://localhost:57885/objectTypes", false);
+                xhr.onload = function (e) {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            self.objectTypes = JSON.parse(xhr.responseText);
+                        }
+                    }
+                };
+                xhr.send(null);
+                xhr.open("GET", "http://localhost:57885/licenses", false);
+                xhr.onload = function (e) {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            self.licenses = JSON.parse(xhr.responseText);
+                        }
+                    }
+                };
+                xhr.send(null);
+
+                return [this.objectTypes, this.licenses];*/
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "http://localhost:17344/Search/SearchOptions", false);
+                xhr.onload = function (e) {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            console.debug(xhr.responseText);
+                        }
+                    }
+                };
+                xhr.send(null);
+            }
+        };
+    }]);

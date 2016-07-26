@@ -1,71 +1,54 @@
 angular.module('app', ['selectionTool'])
-    .service('ConfigService', function () {
-        this.hardCoded = true;
-        this.useSubmitButton = false;
-    })
-    .service('SelectedDataService', function () {
-        this.selectedElements = [];
 
-        this.addSelectedElement = function (element) {
-            var index = this.selectedElements.indexOf(element);
-            if (index == -1) {
-                this.selectedElements.push(element);
-            }
-        };
-
-        this.removeSelectedElement = function (element) {
-            var index = this.selectedElements.indexOf(element);
-            if (index > -1) {
-                this.selectedElements.splice(index, 1);
-            }
-        };
-    })
-    .service('DataService', function () {
-        this.getData = function () {
-            return [
-                [
+    .provider('DemoData', function DemoDataProvider() {
+        function DemoData() {
+            this.getObjectTypes = function () {
+                return [
                     {
-                        "Id": 12,
-                        "Name": "Raw Image",
-                        "Description": null
+                        "data": "Subject",
+                        "Name": "Subject"
                     },
                     {
-                        "Id": 13,
-                        "Name": "Segmentation Image",
-                        "Description": null
+                        "data": "Study",
+                        "Name": "Study"
                     },
                     {
-                        "Id": 14,
-                        "Name": "Models 3D",
-                        "Description": null
+                        "data": "RawImage",
+                        "Name": "Raw Image"
                     },
                     {
-                        "Id": 15,
-                        "Name": "Unknown",
-                        "Description": null
+                        "data": "SegmentationImage",
+                        "Name": "Segmentation Image"
                     },
                     {
-                        "Id": 16,
-                        "Name": "Statisctical Model",
-                        "Description": null
+                        "data": "ClinicalStudyData",
+                        "Name": "Clinical Study Data"
                     },
                     {
-                        "Id": 17,
-                        "Name": "Clinical Study Definition",
-                        "Description": null
+                        "data": "ClinicalStudyDefinition",
+                        "Name": "Clinical Study Definition"
                     },
                     {
-                        "Id": 18,
-                        "Name": "Clinical Study Data",
-                        "Description": null
+                        "data": "StatisticalModel",
+                        "Name": "Statistical Model"
                     },
                     {
-                        "Id": 19,
-                        "Name": "None",
-                        "Description": null
+                        "data": "GenomicData",
+                        "Name": "Genomic Data"
+                    },
+                    {
+                        "data": "GenomicSeries",
+                        "Name": "Genomic Series"
+                    },
+                    {
+                        "data": "GenomicPlatform",
+                        "Name": "Genomic Platform"
                     }
-                ],
-                [
+                ];
+            };
+
+            this.getLicenses = function () {
+                return [
                     {
                         "Id": 1,
                         "Name": "CC_BY_NC_SA_3.0",
@@ -106,7 +89,11 @@ angular.module('app', ['selectionTool'])
                         "Name": "ODC_ODBL",
                         "Description": null
                     }
-                ]
-            ];
-        }
+                ];
+            };
+        };
+
+        this.$get = function demoDataFactory() {
+            return new DemoData();
+        };
     });

@@ -107,3 +107,5 @@ angular.module('app', ['selectionTool'])
             return new DemoData();
         };
     });
+
+    angular.bootstrap($('#1stUseCase'), ['app']);

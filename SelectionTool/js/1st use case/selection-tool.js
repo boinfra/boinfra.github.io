@@ -3,13 +3,14 @@ angular.module('selectionTool', ['selectionTool.services'])
     .controller('FilterController', ['$scope', 'ConfigService', 'DataService', 'SelectedDataService',
         function ($scope, ConfigService, DataService, SelectedDataService) {
             $scope.data = DataService.getData();
+            $scope.displayData = DataService.getData();
             $scope.useSubmitButton = ConfigService.useSubmitButton;
             $scope.jsonOutput = angular.toJson(SelectedDataService.selectedElements, 4);
 
             $scope.selectAll = function (arrayNum) {
                 for (var i = 0; i < $scope.data[arrayNum].length; i++) {
                     $scope.data[arrayNum][i].selected = true;
-                    SelectedDataService.addSelectedElement($scope.data[arrayNum][i]);
+                    SelectedDataService.addSelectedElement($scope.displayData[arrayNum][i]);
                 }
             };
 
@@ -27,7 +28,7 @@ angular.module('selectionTool', ['selectionTool.services'])
             $scope.selectNone = function (arrayNum) {
                 for (var i = 0; i < $scope.data[arrayNum].length; i++) {
                     $scope.data[arrayNum][i].selected = false;
-                    SelectedDataService.removeSelectedElement($scope.data[arrayNum][i]);
+                    SelectedDataService.removeSelectedElement($scope.displayData[arrayNum][i]);
                 }
             };
 

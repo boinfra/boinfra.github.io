@@ -32,7 +32,7 @@
 						<a href ng-click="toggleAllSelected($index)"><strong>ALL</strong></a>
 					</li>
 					<li ng-repeat="element in array" ng-class="{active: element.selected}">
-						<a href ng-click="toggleSelected(element)">{{element.Name}}</a>
+						<a href ng-click="toggleSelected(element)">{{element.name}}</a>
 					</li>
 				</ul>
 				<pre>{{jsonOutput}}</pre>

@@ -55,6 +55,7 @@ angular.module('selectionTool', ['selectionTool.services'])
 
             $scope.toggleSelected = function (array, displayArray, element) {
                 var displayElement = {};
+                console.debug(displayArray);
                 for (var i = 0; i < array.length; i++) {
                     if (array[i].id == element.id) {
                         displayElement = displayArray[i];
@@ -87,16 +88,13 @@ angular.module('selectionTool', ['selectionTool.services'])
                     if (index == -1) {
                         this.selectedElements.push(element);
                     }
-                    console.debug(this.selectedElements);
                 };
 
                 this.removeSelectedElement = function (element) {
                     var index = this.selectedElements.indexOf(element);
-                    console.debug(element);
                     if (index > -1) {
                         this.selectedElements.splice(index, 1);
                     }
-                    console.debug(this.selectedElements);
                 };
             })
 

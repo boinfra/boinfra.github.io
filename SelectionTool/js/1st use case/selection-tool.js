@@ -55,15 +55,15 @@ angular.module('selectionTool', ['selectionTool.services'])
 
             $scope.toggleSelected = function (element) {
                 var displayElement = {};
-                for(var i = 0; i < $scope.data.length; i++) {
-                    if($scope.data[i].id == element.id) {
-                        displayElement.id= element.id;
-                        displayElement.nameid= element.name;
-                        displayElement.description= element.descriptionid;
+                for (var i = 0; i < $scope.data.length; i++) {
+                    if ($scope.data[i].id == element.id) {
+                        console.debug($scope.data[i]);
+                        displayElement.id = element.id;
+                        displayElement.nameid = element.name;
+                        displayElement.description = element.descriptionid;
                         i = $scope.data.length;
                     }
                 }
-                console.debug(displayElement);
                 element.selected = !element.selected;
                 if (element.selected) {
                     SelectedDataService.addSelectedElement(displayElement);
@@ -75,73 +75,73 @@ angular.module('selectionTool', ['selectionTool.services'])
                     $scope.submit();
                 }
             };
-        }]);;angular.module('selectionTool.services', [])
+        }]);; angular.module('selectionTool.services', [])
 
-    .service('ConfigService', function () {
-        this.hardCoded = true;
-        this.useSubmitButton = true;
-    })
+            .service('ConfigService', function () {
+                this.hardCoded = true;
+                this.useSubmitButton = true;
+            })
 
-    .service('SelectedDataService', function () {
-        this.selectedElements = [];
+            .service('SelectedDataService', function () {
+                this.selectedElements = [];
 
-        this.addSelectedElement = function (element) {
-            var index = this.selectedElements.indexOf(element);
-            if (index == -1) {
-                this.selectedElements.push(element);
-            }
-        };
-
-        this.removeSelectedElement = function (element) {
-            var index = this.selectedElements.indexOf(element);
-            if (index > -1) {
-                this.selectedElements.splice(index, 1);
-            }
-        };
-    })
-
-    .service('DataService', ['ConfigService', 'DemoData', '$http', function (ConfigService, DemoData, $http) {
-        this.getData = function () {
-            if (ConfigService.hardCoded) {
-                return [DemoData.getObjectTypes(), DemoData.getLicenses()];
-            }
-            else {
-                /*this.objectTypes = [];
-                this.licenses = [];
-                var self = this;
-
-                var xhr = new XMLHttpRequest();
-                xhr.open("GET", "http://localhost:57885/objectTypes", false);
-                xhr.onload = function (e) {
-                    if (xhr.readyState === 4) {
-                        if (xhr.status === 200) {
-                            self.objectTypes = JSON.parse(xhr.responseText);
-                        }
+                this.addSelectedElement = function (element) {
+                    var index = this.selectedElements.indexOf(element);
+                    if (index == -1) {
+                        this.selectedElements.push(element);
                     }
                 };
-                xhr.send(null);
-                xhr.open("GET", "http://localhost:57885/licenses", false);
-                xhr.onload = function (e) {
-                    if (xhr.readyState === 4) {
-                        if (xhr.status === 200) {
-                            self.licenses = JSON.parse(xhr.responseText);
-                        }
+
+                this.removeSelectedElement = function (element) {
+                    var index = this.selectedElements.indexOf(element);
+                    if (index > -1) {
+                        this.selectedElements.splice(index, 1);
                     }
                 };
-                xhr.send(null);
+            })
 
-                return [this.objectTypes, this.licenses];*/
+            .service('DataService', ['ConfigService', 'DemoData', '$http', function (ConfigService, DemoData, $http) {
+                this.getData = function () {
+                    if (ConfigService.hardCoded) {
+                        return [DemoData.getObjectTypes(), DemoData.getLicenses()];
+                    }
+                    else {
+                        /*this.objectTypes = [];
+                        this.licenses = [];
+                        var self = this;
+        
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("GET", "http://localhost:57885/objectTypes", false);
+                        xhr.onload = function (e) {
+                            if (xhr.readyState === 4) {
+                                if (xhr.status === 200) {
+                                    self.objectTypes = JSON.parse(xhr.responseText);
+                                }
+                            }
+                        };
+                        xhr.send(null);
+                        xhr.open("GET", "http://localhost:57885/licenses", false);
+                        xhr.onload = function (e) {
+                            if (xhr.readyState === 4) {
+                                if (xhr.status === 200) {
+                                    self.licenses = JSON.parse(xhr.responseText);
+                                }
+                            }
+                        };
+                        xhr.send(null);
+        
+                        return [this.objectTypes, this.licenses];*/
 
-                var xhr = new XMLHttpRequest();
-                xhr.open("GET", "http://localhost:17344/Search/SearchOptions", false);
-                xhr.onload = function (e) {
-                    if (xhr.readyState === 4) {
-                        if (xhr.status === 200) {
-                            console.debug(xhr.responseText);
-                        }
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("GET", "http://localhost:17344/Search/SearchOptions", false);
+                        xhr.onload = function (e) {
+                            if (xhr.readyState === 4) {
+                                if (xhr.status === 200) {
+                                    console.debug(xhr.responseText);
+                                }
+                            }
+                        };
+                        xhr.send(null);
                     }
                 };
-                xhr.send(null);
-            }
-        };
-    }]);
+            }]);

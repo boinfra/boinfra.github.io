@@ -68,7 +68,7 @@ angular.module('selectionTool', ['selectionTool.services'])
                     SelectedDataService.addSelectedElement(displayElement);
                 }
                 else {
-                    SelectedDataService.removeSelectedElement(displayElement);
+                    SelectedDataService.removeSelectedElement(element);
                 }
                 if (!ConfigService.useSubmitButton) {
                     $scope.submit();

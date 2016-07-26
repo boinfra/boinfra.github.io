@@ -108,4 +108,7 @@ angular.module('noSubmit', ['noSubmitSelectionTool'])
         };
     });
 
-angular.bootstrap(document.getElementById('2ndUseCase'), ['noSubmit']);
+
+angular.element(document).ready(function () {
+    angular.bootstrap(document.getElementById('2ndUseCase'), ['noSubmit']);
+});

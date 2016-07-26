@@ -8,7 +8,7 @@ angular.module('selectionTool', ['selectionTool.services'])
 
             $scope.selectAll = function (arrayNum) {
                 for (var i = 0; i < $scope.data[arrayNum].length; i++) {
-                    $scope.data[arrayNum][i].Selected = true;
+                    $scope.data[arrayNum][i].selected = true;
                     SelectedDataService.addSelectedElement($scope.data[arrayNum][i]);
                 }
             };
@@ -26,7 +26,7 @@ angular.module('selectionTool', ['selectionTool.services'])
 
             $scope.selectNone = function (arrayNum) {
                 for (var i = 0; i < $scope.data[arrayNum].length; i++) {
-                    $scope.data[arrayNum][i].Selected = false;
+                    $scope.data[arrayNum][i].selected = false;
                     SelectedDataService.removeSelectedElement($scope.data[arrayNum][i]);
                 }
             };
@@ -34,7 +34,7 @@ angular.module('selectionTool', ['selectionTool.services'])
             $scope.allSelected = function (arrayNum) {
                 var selected = 0;
                 $scope.data[arrayNum].forEach(function (element, index, array) {
-                    if (element.Selected)
+                    if (element.selected)
                         selected++;
                 });
                 return (selected == $scope.data[arrayNum].length);
@@ -53,8 +53,8 @@ angular.module('selectionTool', ['selectionTool.services'])
             };
 
             $scope.toggleSelected = function (element) {
-                element.Selected = !element.Selected;
-                if (element.Selected) {
+                element.selected = !element.selected;
+                if (element.selected) {
                     SelectedDataService.addSelectedElement(element);
                 }
                 else {

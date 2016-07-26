@@ -25,7 +25,6 @@ angular.module('selectionTool', ['selectionTool.services'])
             }
 
             $scope.selectNone = function (arrayNum) {
-                console.debug("Select none");
                 for (var i = 0; i < $scope.data[arrayNum].length; i++) {
                     $scope.data[arrayNum][i].selected = false;
                     SelectedDataService.removeSelectedElement($scope.data[arrayNum][i]);

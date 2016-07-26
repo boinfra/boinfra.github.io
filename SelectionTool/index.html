@@ -12,13 +12,17 @@
 </head>
 
 <body ng-app="app">
-	<div class="container" ng-controller="FilterController">
+	<div class="container" ng-controller="FilterController" ng-init="showTypes=true; showLicenses=true">
+		<ul class="nav nav-pills">
+			 <li ng-class="{active: showTypes}"><a href="javascript:void(o)" ng-click="showTypes=!showTypes">Object types</a></li>
+			 <li ng-class="{active: showLicenses}"><a href="javascript:void(o)" ng-click="showLicenses=!showLicenses">Licenses</a></li>
+		</ul>		
 		<button class="btn" ng-click="submit()" ng-show="useSubmitButton">
 			Submit
 		</button>
 		<br>
 		<br>
-		<ul ng-repeat="array in data" class="nav nav-pills">
+		<ul ng-repeat="array in data" class="nav nav-pills" ng-show="$index==0&&showTypes || $index==1&&showLicenses">
 			<li ng-class="{active: allSelected($index)}">
 				<a href ng-click="toggleAllSelected($index)"><strong>ALL</strong></a>
 			</li>

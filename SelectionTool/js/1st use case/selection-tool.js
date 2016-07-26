@@ -57,9 +57,7 @@ angular.module('selectionTool', ['selectionTool.services'])
                 var displayElement = {};
                 for (var i = 0; i < array.length; i++) {
                     if (array[i].id == element.id) {
-                        displayElement.id = element.id;
-                        displayElement.name = element.name;
-                        displayElement.description = element.description;
+                        displayElement = $scope.displayData[i];
                         i = array.length;
                     }
                 }

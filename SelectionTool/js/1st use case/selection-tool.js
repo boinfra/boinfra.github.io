@@ -56,7 +56,7 @@ angular.module('selectionTool', ['selectionTool.services'])
             $scope.toggleSelected = function (element) {
                 var displayElement = {};
                 for(var i = 0; i < $scope.data.length; i++) {
-                    if($scope.data[i] === element) {
+                    if($scope.data[i].id == element.id) {
                         displayElement.id= element.id;
                         displayElement.nameid= element.name;
                         displayElement.description= element.descriptionid;

@@ -63,12 +63,14 @@ angular.module('selectionTool', ['selectionTool.services'])
                         i = array.length;
                     }
                 }
+                console.debug(displayElement);
+                console.debug(element);
                 element.selected = !element.selected;
                 if (element.selected) {
                     SelectedDataService.addSelectedElement(displayElement);
                 }
                 else {
-                    SelectedDataService.removeSelectedElement(element);
+                    SelectedDataService.removeSelectedElement(displayElement);
                 }
                 if (!ConfigService.useSubmitButton) {
                     $scope.submit();

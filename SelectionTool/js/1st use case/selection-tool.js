@@ -65,6 +65,7 @@ angular.module('selectionTool', ['selectionTool.services'])
                         i = $scope.data.length;
                     }
                 }
+                console.debug(displayElement);
                 element.selected = !element.selected;
                 if (element.selected) {
                     SelectedDataService.addSelectedElement(displayElement);

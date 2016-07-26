@@ -59,7 +59,7 @@ angular.module('selectionTool', ['selectionTool.services'])
                     if (array[i].id == element.id) {
                         displayElement.id = element.id;
                         displayElement.name = element.name;
-                        displayElement.description = element.descriptionid;
+                        displayElement.description = element.description;
                         i = array.length;
                     }
                 }

@@ -37,7 +37,7 @@ angular.module('noSubmitSelectionTool', ['noSubmitSelectionTool.services'])
                     if (element.selected)
                         selected++;
                 });
-                return (selected == $scope.data[arrayNum].length);3rd
+                return (selected == $scope.data[arrayNum].length);
             };
 
             $scope.toggleAllSelected = function (arrayNum) {

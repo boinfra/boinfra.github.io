@@ -4,6 +4,7 @@ angular.module('onlyTypesSelectionTool', ['onlyTypesSelectionTool.services'])
         function ($scope, ConfigService, DataService, SelectedDataService) {
             $scope.title = "Title";
             $scope.data = DataService.getData();
+            console.debug($scope.data);
             $scope.useSubmitButton = ConfigService.useSubmitButton;
             $scope.jsonOutput = angular.toJson(SelectedDataService.selectedElements, 4);
 

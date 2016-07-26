@@ -8,10 +8,10 @@ angular.module('onlyTypesSelectionTool', ['onlyTypesSelectionTool.services'])
             $scope.useSubmitButton = ConfigService.useSubmitButton;
             $scope.jsonOutput = angular.toJson(SelectedDataService.selectedElements, 4);
 
-            $scope.selectAll = function (arrayNum) {
-                for (var i = 0; i < $scope.data[arrayNum].length; i++) {
-                    $scope.data[arrayNum][i].selected = true;
-                    SelectedDataService.addSelectedElement($scope.data[arrayNum][i]);
+            $scope.selectAll = function () {
+                for (var i = 0; i < $scope.data.length; i++) {
+                    $scope.data[i].selected = true;
+                    SelectedDataService.addSelectedElement($scope.data[i]);
                 }
             };
 
@@ -26,28 +26,28 @@ angular.module('onlyTypesSelectionTool', ['onlyTypesSelectionTool.services'])
                 $scope.submit();
             }
 
-            $scope.selectNone = function (arrayNum) {
-                for (var i = 0; i < $scope.data[arrayNum].length; i++) {
-                    $scope.data[arrayNum][i].selected = false;
-                    SelectedDataService.removeSelectedElement($scope.data[arrayNum][i]);
+            $scope.selectNone = function (arryNum) {
+                for (var i = 0; i < $scope.data.length; i++) {
+                    $scope.data[i].selected = false;
+                    SelectedDataService.removeSelectedElement($scope.data[i]);
                 }
             };
 
-            $scope.allSelected = function (arrayNum) {
+            $scope.allSelected = function () {
                 var selected = 0;
-                $scope.data[arrayNum].forEach(function (element, index, array) {
+                $scope.data.forEach(function (element, index, array) {
                     if (element.selected)
                         selected++;
                 });
-                return (selected == $scope.data[arrayNum].length);
+                return (selected == $scope.data.length);
             };
 
-            $scope.toggleAllSelected = function (arrayNum) {
-                if ($scope.allSelected(arrayNum)) {
-                    $scope.selectNone(arrayNum);
+            $scope.toggleAllSelected = function () {
+                if ($scope.allSelected()) {
+                    $scope.selectNone();
                 }
                 else {
-                    $scope.selectAll(arrayNum);
+                    $scope.selectAll();
                 }
                 if (!ConfigService.useSubmitButton) {
                     $scope.submit();

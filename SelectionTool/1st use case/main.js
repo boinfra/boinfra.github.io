@@ -1,5 +1,5 @@
 angular.module('app', ['selectionTool'])
-
+    
     .provider('DemoData', function DemoDataProvider() {
         function DemoData() {
             this.getObjectTypes = function () {

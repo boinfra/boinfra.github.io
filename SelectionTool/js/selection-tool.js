@@ -1,7 +1,7 @@
 angular.module('selectionTool', ['selectionTool.services'])
 
-    .controller('FilterController', ['$scope', 'ConfigService', 'DataService', 'SelectedDataService',
-        function ($scope, ConfigService, DataService, SelectedDataService) {
+    .controller('FilterController', ['$scope', '$http', 'ConfigService', 'DataService', 'SelectedDataService',
+        function ($scope, $http, ConfigService, DataService, SelectedDataService) {
             $scope.data = [];
             $http.get("https://localhost/selectionTool/data").success(function (data) {
                 $scope.data = data;

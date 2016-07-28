@@ -99,7 +99,7 @@
 					<h1>4th use case</h1>
 					<h3>Select only object types without submit button and only a few types are selected at the beginning</h3>
 					<br>
-					<ul class="nav nav-pills">
+					<ul class="nav nav-pills" ng-init="data[0][0].selected=false;data[0][1].selected=false;">
 						<li ng-class="{active: allSelected(0)}">
 							<a href ng-click="toggleAllSelected(0)"><strong>ALL</strong></a>
 						</li>

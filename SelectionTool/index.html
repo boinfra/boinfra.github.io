@@ -13,12 +13,14 @@
 
 	<body class="container">
 		<div class="navbar navbar-fixed-top">
-			<ul class="nav">
-				<li><a href="#">1st use case</a></li>
-				<li><a href="#">2nd use case</a></li>
-				<li><a href="#">3rd use case</a></li>
-				<li><a href="#">4th use case</a></li>
-			</ul>
+			<div class="navbar-inner">
+				<ul class="nav">
+					<li><a href="#">1st use case</a></li>
+					<li><a href="#">2nd use case</a></li>
+					<li><a href="#">3rd use case</a></li>
+					<li><a href="#">4th use case</a></li>
+				</ul>
+			</div>
 		</div>
 		<div id="1stUseCase" ng-app="app">
 			<div ng-controller="FilterController" ng-init="showTypes=true; showLicenses=true">

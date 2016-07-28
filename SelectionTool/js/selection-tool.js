@@ -6,12 +6,11 @@ angular.module('selectionTool', ['selectionTool.services'])
             $http.get("https://localhost/selectionTool/data").success(function (data) {
                 $scope.data = JSON.parse(JSON.stringify(data));
                 $scope.displayData = JSON.parse(JSON.stringify(data));
-                console.debug($scope.data);
                 for (var i = 0; i < $scope.data.length; i++) {
                     $scope.selectAll(i);
                     if(ConfigService.selectNotAll) {
-                        $scope.toggleSelected(data[i], displayData[i], data[i][0]);
-                        $scope.toggleSelected(data[i], displayData[i], data[i][1]);
+                        $scope.toggleSelected($scope.data[i], $scope.displayData[i], $scope.data[i][0]);
+                        $scope.toggleSelected($scope.data[i], $scope.displayData[i], $scope.data[i][1]);
                     }
                 }
                 if (!ConfigService.useSubmitButton) {

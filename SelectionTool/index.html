@@ -12,6 +12,14 @@
 	</head>
 
 	<body>
+		<div class="navbar navbar-fixed-top">
+			<ul class="nav">
+				<li><a href="#">1st use case</a></li>
+				<li><a href="#">2nd use case</a></li>
+				<li><a href="#">3rd use case</a></li>
+				<li><a href="#">4th use case</a></li>
+			</ul>
+		</div>
 		<div id="1stUseCase" ng-app="app">
 			<div class="container" ng-controller="FilterController" ng-init="showTypes=true; showLicenses=true">
 				<h1>1st use case</h1>
@@ -86,8 +94,7 @@
 				<h1>4th use case</h1>
 				<h3>Select only object types without submit button and only a few types are selected at the beginning</h3>
 				<br>
-				<ul class="nav nav-pills" ng-init="toggleSelected(data[0], displayData[0], data[0][0]);
-												   toggleSelected(data[0], displayData[0], data[0][1])">
+				<ul class="nav nav-pills">
 					<li ng-class="{active: allSelected(0)}">
 						<a href ng-click="toggleAllSelected(0)"><strong>ALL</strong></a>
 					</li>

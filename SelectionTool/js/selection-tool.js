@@ -1,7 +1,7 @@
 angular.module('selectionTool', ['selectionTool.services'])
 
-    .controller('FilterController', ['$scope', '$http', 'ConfigService', 'DataService', 'SelectedDataService',
-        function ($scope, $http, ConfigService, DataService, SelectedDataService) {
+    .controller('FilterController', ['$scope', '$http', 'ConfigService', 'SelectedDataService',
+        function ($scope, $http, ConfigService, SelectedDataService) {
             $scope.data = [];
             $http.get("https://localhost/selectionTool/data").success(function (data) {
                 $scope.data = JSON.parse(JSON.stringify(data));
@@ -85,11 +85,6 @@ angular.module('selectionTool', ['selectionTool.services'])
             };
         }]);; angular.module('selectionTool.services', [])
 
-            .service('ConfigService', function () {
-                this.hardCoded = true;
-                this.useSubmitButton = true;
-            })
-
             .service('SelectedDataService', function () {
                 this.selectedElements = [];
 
@@ -106,50 +101,4 @@ angular.module('selectionTool', ['selectionTool.services'])
                         this.selectedElements.splice(index, 1);
                     }
                 };
-            })
-
-            .service('DataService', ['ConfigService', 'DemoData', '$http', function (ConfigService, DemoData, $http) {
-                this.getData = function () {
-                    if (ConfigService.hardCoded) {
-                        return [DemoData.getObjectTypes(), DemoData.getLicenses()];
-                    }
-                    else {
-                        /*this.objectTypes = [];
-                        this.licenses = [];
-                        var self = this;
-        
-                        var xhr = new XMLHttpRequest();
-                        xhr.open("GET", "http://localhost:57885/objectTypes", false);
-                        xhr.onload = function (e) {
-                            if (xhr.readyState === 4) {
-                                if (xhr.status === 200) {
-                                    self.objectTypes = JSON.parse(xhr.responseText);
-                                }
-                            }
-                        };
-                        xhr.send(null);
-                        xhr.open("GET", "http://localhost:57885/licenses", false);
-                        xhr.onload = function (e) {
-                            if (xhr.readyState === 4) {
-                                if (xhr.status === 200) {
-                                    self.licenses = JSON.parse(xhr.responseText);
-                                }
-                            }
-                        };
-                        xhr.send(null);
-        
-                        return [this.objectTypes, this.licenses];*/
-
-                        var xhr = new XMLHttpRequest();
-                        xhr.open("GET", "http://localhost:17344/Search/SearchOptions", false);
-                        xhr.onload = function (e) {
-                            if (xhr.readyState === 4) {
-                                if (xhr.status === 200) {
-                                    console.debug(xhr.responseText);
-                                }
-                            }
-                        };
-                        xhr.send(null);
-                    }
-                };
-            }]);
+            });

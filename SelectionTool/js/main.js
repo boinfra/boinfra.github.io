@@ -133,6 +133,11 @@ angular.module('app', ['selectionTool'])
         this.$get = function demoDataFactory() {
             return new DemoData();
         };
+    })
+
+    .service('ConfigService', function () {
+        this.hardCoded = true;
+        this.useSubmitButton = true;
     });
 
 angular.module('2ndUseCase', ['selectionTool'])
@@ -268,6 +273,11 @@ angular.module('2ndUseCase', ['selectionTool'])
         this.$get = function demoDataFactory() {
             return new DemoData();
         };
+    })
+
+    .service('ConfigService', function () {
+        this.hardCoded = true;
+        this.useSubmitButton = false;
     });
 
 angular.element(document).ready(function () {

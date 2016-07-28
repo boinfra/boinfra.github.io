@@ -2,8 +2,19 @@ angular.module('selectionTool', ['selectionTool.services'])
 
     .controller('FilterController', ['$scope', 'ConfigService', 'DataService', 'SelectedDataService',
         function ($scope, ConfigService, DataService, SelectedDataService) {
-            $scope.data = DataService.getData();
-            $scope.displayData = DataService.getData();
+            $scope.data = [];
+            $http.get("https://localhost/selectionTool/data").success(function (data) {
+                $scope.data = data;
+                $scope.displayData = data;
+                console.debug($scope.data);
+
+                for (var i = 0; i < $scope.data.length; i++) {
+                    $scope.selectAll(i);
+                }
+                if (!ConfigService.useSubmitButton) {
+                    $scope.submit();
+                }
+            });
             $scope.useSubmitButton = ConfigService.useSubmitButton;
             $scope.jsonOutput = angular.toJson(SelectedDataService.selectedElements, 4);
 

@@ -11,7 +11,7 @@
 		<script src="js/selection-tool.js"></script>
 	</head>
 
-	<body>
+	<body class="container">
 		<div class="navbar navbar-fixed-top">
 			<ul class="nav">
 				<li><a href="#">1st use case</a></li>
@@ -21,7 +21,7 @@
 			</ul>
 		</div>
 		<div id="1stUseCase" ng-app="app">
-			<div class="container" ng-controller="FilterController" ng-init="showTypes=true; showLicenses=true">
+			<div ng-controller="FilterController" ng-init="showTypes=true; showLicenses=true">
 				<h1>1st use case</h1>
 				<h3>Select object types and licenses using submit button</h3>
 				<ul class="nav nav-pills">
@@ -48,7 +48,7 @@
 		<hr/>
 
 		<div id="2ndUseCase" ng-app="2ndUseCase">
-			<div class="container" ng-controller="FilterController" ng-init="showTypes=true; showLicenses=true">
+			<div ng-controller="FilterController" ng-init="showTypes=true; showLicenses=true">
 				<h1>2nd use case</h1>
 				<h3>Select object types and licenses without submit button</h3>
 				<ul class="nav nav-pills">
@@ -71,7 +71,7 @@
 		<hr/>
 
 		<div id="3rdUseCase" ng-app="3rdUseCase">
-			<div class="container" ng-controller="FilterController">
+			<div ng-controller="FilterController">
 				<h1>3rd use case</h1>
 				<h3>Select only object types without submit button</h3>
 				<br>
@@ -90,7 +90,7 @@
 		<hr/>
 
 		<div id="4thUseCase" ng-app="4thUseCase">
-			<div class="container" ng-controller="FilterController">
+			<div ng-controller="FilterController">
 				<h1>4th use case</h1>
 				<h3>Select only object types without submit button and only a few types are selected at the beginning</h3>
 				<br>

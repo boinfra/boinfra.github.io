@@ -135,7 +135,7 @@ angular.module('app', ['selectionTool'])
         };
     });
 
-angular.module('2ndUseCase', ['SelectionTool'])
+angular.module('2ndUseCase', ['selectionTool'])
 
     .config(['$httpProvider', '$logProvider', 'DemoDataProvider', function ($httpProvider, $logProvider, DemoDataProvider) {
 

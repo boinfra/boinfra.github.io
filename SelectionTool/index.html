@@ -68,8 +68,8 @@
 				<h3>Select only object types without submit button</h3>
 				<br>
 				<ul class="nav nav-pills">
-					<li ng-class="{active: allSelected()}">
-						<a href ng-click="toggleAllSelected()"><strong>ALL</strong></a>
+					<li ng-class="{active: allSelected(0)}">
+						<a href ng-click="toggleAllSelected(0)"><strong>ALL</strong></a>
 					</li>
 					<li ng-repeat="element in data" ng-class="{active: element.selected}">
 						<a href ng-click="toggleSelected(element)">{{element.name}}</a>

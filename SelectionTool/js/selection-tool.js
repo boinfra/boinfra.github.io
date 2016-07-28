@@ -9,6 +9,10 @@ angular.module('selectionTool', ['selectionTool.services'])
                 console.debug($scope.data);
                 for (var i = 0; i < $scope.data.length; i++) {
                     $scope.selectAll(i);
+                    if(ConfigService.selectNotAll) {
+                        $scope.toggleSelected(data[i], displayData[i], data[i][0]);
+                        $scope.toggleSelected(data[i], displayData[i], data[i][1]);
+                    }
                 }
                 if (!ConfigService.useSubmitButton) {
                     $scope.submit();

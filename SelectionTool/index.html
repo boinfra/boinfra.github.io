@@ -103,8 +103,7 @@
 						<li ng-class="{active: allSelected(0)}">
 							<a href ng-click="toggleAllSelected(0)"><strong>ALL</strong></a>
 						</li>
-						<li ng-repeat="element in data[0]" ng-class="{active: element.selected}"
-						ng-init="($index == 0 || $index == 1) ? toggleSelected(data[0], displayData[0], data[0][$index]) :;">
+						<li ng-repeat="element in data[0]" ng-class="{active: element.selected}">
 							<a href ng-click="toggleSelected(data[0], displayData[0], element)">{{element.name}}</a>
 						</li>
 					</ul>

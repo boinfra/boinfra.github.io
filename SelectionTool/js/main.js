@@ -468,6 +468,7 @@ angular.module('3rdUseCase', ['selectionTool'])
     .service('ConfigService', function () {
         this.hardCoded = true;
         this.useSubmitButton = false;
+        this.selectNotAll = true;
     });
 
 angular.element(document).ready(function () {

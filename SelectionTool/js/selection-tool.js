@@ -6,8 +6,6 @@ angular.module('selectionTool', ['selectionTool.services'])
             $http.get("https://localhost/selectionTool/data").success(function (data) {
                 $scope.data = JSON.parse(JSON.stringify(data));
                 $scope.displayData = JSON.parse(JSON.stringify(data));
-                console.debug($scope.data);
-
                 for (var i = 0; i < $scope.data.length; i++) {
                     $scope.selectAll(i);
                 }

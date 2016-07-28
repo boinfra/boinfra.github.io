@@ -297,7 +297,7 @@ angular.module('3rdUseCase', ['selectionTool'])
                 },
                 'responseError': function (response) {
                     if (response.config.url.indexOf("https://localhost/selectionTool/data") > -1) {
-                        response.data = demoData.getObjectTypes();
+                        response.data = [demoData.getObjectTypes()];
                         response.status = 200;
                     }
                     return response;

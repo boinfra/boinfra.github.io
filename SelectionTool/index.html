@@ -48,12 +48,12 @@
 					<li ng-class="{active: showLicenses}"><a href="javascript:void(0)" ng-click="showLicenses=!showLicenses; selectNone(1); submit();">Licenses</a></li>
 				</ul>
 				<br>
-				<ul ng-repeat="array in data" class="nav nav-pills" ng-show="$index==0 && showTypes || $index==1 && showLicenses">
+				<ul ng-repeat="array in data" class="nav nav-pills" ng-init="displayArray=displayData[$index]" ng-show="$index==0 && showTypes || $index==1 && showLicenses">
 					<li ng-class="{active: allSelected($index)}">
 						<a href ng-click="toggleAllSelected($index)"><strong>ALL</strong></a>
 					</li>
 					<li ng-repeat="element in array" ng-class="{active: element.selected}">
-						<a href ng-click="toggleSelected(element)">{{element.name}}</a>
+						<a href ng-click="toggleSelected(array, displayArray, element)">{{element.name}}</a>
 					</li>
 				</ul>
 				<pre>{{jsonOutput}}</pre>
@@ -72,7 +72,7 @@
 						<a href ng-click="toggleAllSelected(0)"><strong>ALL</strong></a>
 					</li>
 					<li ng-repeat="element in data[0]" ng-class="{active: element.selected}">
-						<a href ng-click="toggleSelected(element)">{{element.name}}</a>
+						<a href ng-click="toggleSelected(data[0], displayData[0], element)">{{element.name}}</a>
 					</li>
 				</ul>
 				<pre>{{jsonOutput}}</pre>
